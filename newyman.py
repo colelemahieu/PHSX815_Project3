@@ -17,7 +17,7 @@ Nexp = 500
 Nroll = 100
 
 # default slices to pull out of neymann construction
-probA = 0.2
+probA = 0.3
 probB = 0.6
 
 # user can input value for experiment or measurement number
@@ -104,7 +104,7 @@ plt.text(leftA+.05*(rightA-leftA), .9*topA, "$\\mu$ = %.3f" %(muA), fontweight="
 plt.text(leftA+.05*(rightA-leftA), .85*topA, "$\\sigma$ = %.3f" %(sigmaA), fontweight="bold")
 plt.title("Neyman Slice for $P_{1}$ = %.2f (%i rolls per exp)" %(probA, Nroll))
 plt.xlabel("Estimated Probability from Data")
-plt.ylabel("Number of Entries")
+plt.ylabel("Relative Frequency")
 
 # slice 2
 plt.figure()
@@ -118,7 +118,7 @@ plt.text(leftB+.05*(rightB-leftB), .9*topB, "$\\mu$ = %.3f" %(muB), fontweight="
 plt.text(leftB+.05*(rightB-leftB), .85*topB, "$\\sigma$ = %.3f" %(sigmaB), fontweight="bold")
 plt.title("Neyman Slice for $P_{1}$ = %.2f (%i rolls per exp)" %(probB, Nroll))
 plt.xlabel("Estimated Probability from Data")
-plt.ylabel("Number of Entries")
+plt.ylabel("Relative Frequency")
 
 plt.show()
         
