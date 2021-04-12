@@ -4,6 +4,8 @@
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.mlab as mlab
+from scipy.stats import norm
 from math import *
 from fractions import Fraction
 from Random import Random
@@ -57,9 +59,18 @@ for i in range(0, nexp):
     cp1 = float(ones) / rolls
     guess.append(cp1)
 
-# plot guesses
+# fit to data
+(mu, sigma) = norm.fit(guess)
+
+# plot guesses with Gaussian fit
 plt.figure()
-plt.hist(guess, bins=15)
+n, bins, patches = plt.hist(guess, bins=7, normed=1)
+y = mlab.normpdf(bins, mu, sigma)
+l = plt.plot(bins, y, "r", linewidth=2)
+
+plt.xlabel("Probability Estimation for Rolling a 1")
+plt.ylabel("Relative Frequency")
+plt.title("Estimation Histogram: $\mu=%.4f, \sigma=%.4f$" %(mu, sigma))
 
 plt.show()
         
